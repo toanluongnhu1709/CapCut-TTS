@@ -1,5 +1,15 @@
-export default function speakerParser(type: number) {
+export default function speakerParser(type: number, lang = 'vi'): string {
     let speaker: string;
+
+    if (lang === 'vi') {
+        if (type === 0) {
+            return "BV074_streaming";
+        } else if (type === 1) {
+            return "BV075_streaming";
+        } else {
+            return "BV074_streaming";
+        }
+    }
     
     if (type === 0) {
         // 謎1 男子1
