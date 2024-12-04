@@ -2,9 +2,9 @@ export default function speakerParser(type: number, lang = 'vi'): string {
     let speaker: string;
 
     if (lang === 'vi') {
-        if (type === 0) {
+        if (type === 1) {
             return "BV074_streaming";
-        } else if (type === 1) {
+        } else if (type === 2) {
             return "BV075_streaming";
         } else {
             return "BV074_streaming";
