@@ -1,5 +1,3 @@
-while true
-	do
-	npm start
-	sleep 1
-done
+# !/bin/bash
+
+git pull origin main && docker compose build && docker compose down && docker compose up -d 
