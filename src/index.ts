@@ -18,9 +18,11 @@ tokenTask();
 
 const app = express();
 app.use(cors({ origin: env.Origin })); // cors 設定
-app.listen(env.Port, env.Host, () => {
+const server = app.listen(env.Port, env.Host, () => {
     logger.info(`Server is running on: http://${env.Host}:${env.Port}`);
 });
+
+server.timeout = 1000 * 60 * 10; // 10分
 
 // restServer
 const mainRouter = express.Router();
