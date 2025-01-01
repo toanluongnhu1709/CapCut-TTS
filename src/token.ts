@@ -19,3 +19,11 @@ export async function tokenTask() {
         await sleep(1000 * 60 * 60 * env.TokenInterval);
     }
 }
+
+export async function refreshToken() {
+    logger.info("Token generated");
+    const tokenRes = await getToken();
+    if (!tokenRes) return;
+    USER.token = tokenRes.data.token;
+    USER.appKey = tokenRes.data.app_key;
+}
