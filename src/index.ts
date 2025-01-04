@@ -4,7 +4,7 @@ import cors from 'cors';
 import logger from './utils/log';
 import env from './config/env';
 import synthesize from './routes/synthesize';
-import { tokenTask, refreshToken } from './token';
+import { tokenTask } from './token';
 
 // エラーハンドリング
 if (env.ErrorHandle) {

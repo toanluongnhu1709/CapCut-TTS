@@ -1,7 +1,7 @@
 import express, { Request, Response, text } from 'express';
 
 import getAudioBuffer from '../api/getAudioBuffer';
-import { USER } from '../token';
+import { getUserRandom } from '../token';
 import createAudioStream from '../api/createAudioStream';
 export default async function synthesize(req: Request, res: Response) {
 
@@ -26,6 +26,7 @@ export default async function synthesize(req: Request, res: Response) {
     
 
     if (req.query.method === undefined || req.query.method == 'buffer') {
+        const USER = getUserRandom();
         const audioBuffer = await getAudioBuffer(USER.token, USER.appKey,
             req.query.text as string,
             Number(req.query.type),
@@ -43,6 +44,7 @@ export default async function synthesize(req: Request, res: Response) {
         res.type('audio/wav').status(200).end(audioBuffer);
         return;
     } else if (req.query.method == 'stream') {
+        const USER = getUserRandom();
         const audioStream = createAudioStream(USER.token, USER.appKey,
             req.query.text as string,
             Number(req.query.type),

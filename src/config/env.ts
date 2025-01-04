@@ -11,7 +11,11 @@ const env = {
     Host: process.env.HOST as string,
     Port: Number(process.env.PORT),
     Origin: process.env.ORIGIN as string,
-    TokenInterval: Number(process.env.TOKEN_INTERVAL)
+    TokenInterval: Number(process.env.TOKEN_INTERVAL),
+
+    // support multiple token
+    DeviceTimes: (process.env.DEVICE_TIMES || "").split(','),
+    Signs: (process.env.SIGNS || "").split(','),
 }
 
 export default env;
